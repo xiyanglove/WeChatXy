@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+将删除 .gitignore
+将删除 .idea/inspectionProfiles/
+将删除 .idea/workspace.xml
+将删除 RoBot/__pycache__/
+将删除 WeChatXy/__pycache__/__init__.cpython-35.pyc
+将删除 WeChatXy/__pycache__/settings.cpython-35.pyc
+将删除 WeChatXy/__pycache__/urls.cpython-35.pyc
+将删除 WeChatXy/__pycache__/wsgi.cpython-35.pyc
