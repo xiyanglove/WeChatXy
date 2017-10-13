@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from wechatpy import parse_message, create_reply
 from wechatpy.exceptions import InvalidSignatureException
 from wechatpy.utils import check_signature
+import RoBot.weatherapi as weather
 
 WECHAT_TOKEN = 'e3f4df46afd611e7abc4cec278b6b50a'
 
@@ -23,7 +24,11 @@ def wechat(request):
     elif request.method == 'POST':
         msg = parse_message(request.body)
         if msg.type == 'text':
-            reply = create_reply('这是条文字消息', msg)
+            content = msg.content
+            if (content == "天气"):
+                reply = weather.getWeatherMsg(msg)
+            else:
+                reply = create_reply('这是条文字消息:' + content, msg)
         elif msg.type == 'image':
             reply = create_reply('这是条图片消息', msg)
         elif msg.type == 'voice':
@@ -33,4 +38,5 @@ def wechat(request):
         response = HttpResponse(reply.render(), content_type="application/xml")
         return response
     else:
-        None
+        response = wechat.response_text('check error')
+        return response
