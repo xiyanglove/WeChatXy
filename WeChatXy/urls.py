@@ -21,5 +21,6 @@ from RoBot import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^wechat/', views.wechat),
+    url(r'^index/', views.index),
 
 ]

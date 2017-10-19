@@ -1,3 +1,5 @@
+
+from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from wechatpy import parse_message, create_reply
@@ -7,6 +9,8 @@ import RoBot.weatherapi as weather
 
 WECHAT_TOKEN = 'e3f4df46afd611e7abc4cec278b6b50a'
 
+def index(request):
+    return render(request, "index.html")
 
 @csrf_exempt
 def wechat(request):
